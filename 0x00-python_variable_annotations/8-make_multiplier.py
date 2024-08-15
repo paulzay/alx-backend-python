@@ -3,9 +3,12 @@
 """function"""
 
 
-def make_multiplier(multiplier: float) -> callable:
-    """return multiplier"""
-    def multiplier(n: float) -> float:
-        """return float of n"""
-        return n * multiplier
-    return multiplier
+from typing import Callable
+
+
+def make_multiplier(multiplier: float) -> Callable[[float], float]:
+    """ annotated function make_multiplier"""
+    def multiply(number: float) -> float:
+        """ annotated function make_multiplier"""
+        return number * multiplier
+    return multiply

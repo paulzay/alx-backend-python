@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 """func"""
 
 from typing import List
