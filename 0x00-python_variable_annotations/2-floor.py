@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
+"""return floor"""
 
 import math
-
-"""return floor"""
 
 
 def floor(n: float) -> int:
