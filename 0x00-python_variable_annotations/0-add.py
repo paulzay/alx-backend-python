@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-"""function"""
+"""function to add two integers"""
 
 
-def add(a: int, b: int) -> int:
+def add(a: float, b: float) -> float:
     """return sum of a and b"""
     return a + b
