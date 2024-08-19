@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
 """comment"""
+
 import asyncio
-wait_n = __import__('1-concurrent_coroutines').wait_n
+from typing import List
+
+wait_random = __import__('0-basic_async_syntax').wait_random
 
 
-def task_wait_n():
-    """comment"""
-    return asyncio.create_task(wait_n(5, 10))
+async def task_wait_n(n: int = 0, max_delay: int = 10) -> List[float]:
+    """doc"""
+    delays = []
+    for i in range(n):
+        delays.append(asyncio.create_task(wait_random(max_delay)))
+    return [await delay for delay in asyncio.as_completed(delays)]
