@@ -31,7 +31,8 @@ class TestGithubOrgClient(unittest.TestCase):
         """ test public repos"""
         json = [{"name": "google"}, {"name": "abc"}]
         mock.return_value = json
-        with patch('client.GithubOrgClient._public_repos_url', new_callable=Mock) as mock_public:
+        with patch('client.GithubOrgClient._public_repos_url',
+                   new_callable=Mock) as mock_public:
             mock_public.return_value = 'hello'
             test_class = GithubOrgClient('test')
             self.assertEqual(test_class.public_repos(), ['google', 'abc'])
@@ -41,9 +42,11 @@ class TestGithubOrgClient(unittest.TestCase):
     @patch('client.get_json')
     def test_public_repos_with_license(self, mock):
         """ test public repos with license"""
-        json = [{"name": "google", "license": {"key": "my_license"}}, {"name": "abc"}]
+        json = [{"name": "google", "license": {"key": "my_license"}},
+                {"name": "abc"}]
         mock.return_value = json
-        with patch('client.GithubOrgClient._public_repos_url', new_callable=Mock) as mock_public:
+        with patch('client.GithubOrgClient._public_repos_url',
+                   new_callable=Mock) as mock_public:
             mock_public.return_value = 'hello'
             test_class = GithubOrgClient('test')
             self.assertEqual(test_class.public_repos('my_license'), ['google'])
